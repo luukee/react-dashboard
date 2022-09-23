@@ -1,3 +1,4 @@
+import { click } from "@syncfusion/ej2-react-grids";
 import React, { createContext, useContext, useState } from "react";
 
 const StateContext = createContext();
@@ -11,12 +12,20 @@ const initialState = {
 
 export const ContextProvider = ({ children }) => {
 	const [activeMenu, setActiveMenu] = useState(true);
+	const [isClicked, setIsClicked] = useState(initialState);
+
+	const handleClick = (clicked) => {
+		setIsClicked({ ...initialState, [clicked]: true });
+	};
 
 	return (
 		<StateContext.Provider
 			value={{
 				activeMenu,
 				setActiveMenu,
+				isClicked,
+				setIsClicked,
+				handleClick,
 			}}>
 			{children}
 		</StateContext.Provider>
