@@ -51,11 +51,11 @@ const App = () => {
 					</div>
 					{activeMenu ? (
 						<div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-							Sidebar
+							<Sidebar />
 						</div>
 					) : (
 						<div className="w-0 dark:bg-secondary-dark-bg">
-							Sidebar w-0
+							<Sidebar />
 						</div>
 					)}
 					<div
@@ -64,7 +64,7 @@ const App = () => {
 						}`}
 					>
 						<div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-							Navbar
+							<Navbar />
 						</div>
 					</div>
 					<div>
@@ -72,77 +72,77 @@ const App = () => {
 							{/* Dashboard */}
 							<Route
 								path="/"
-								element="ECommerce"
+								element={<Ecommerce />}
 							/>
 							<Route
 								path="/ecommerce"
-								element="ECommerce"
+								element={<Ecommerce />}
 							/>
 
 							{/* Pages */}
 							<Route
 								path="/orders"
-								element="Orders"
+								element={<Orders />}
 							/>
 							<Route
 								path="/employees"
-								element="Employees"
+								element={<Employees />}
 							/>
 							<Route
 								path="/customers"
-								element="Customers"
+								element={<Customers />}
 							/>
 
 							{/* Apps */}
 							<Route
 								path="/kanban"
-								element="Kanban"
+								element={<Kanban />}
 							/>
 							<Route
 								path="/editor"
-								element="Editor"
+								element={<Editor />}
 							/>
 							<Route
 								path="/calendar"
-								element="Calendar"
+								element={<Calendar />}
 							/>
 							<Route
 								path="/color-picker"
-								element="Color Picker"
+								element={<ColorPicker />}
 							/>
 
 							{/* Charts */}
 							<Route
 								path="/line"
-								element="Line"
+								element={<Line />}
 							/>
 							<Route
 								path="/area"
-								element="Area"
+								element={<Area />}
 							/>
 							<Route
 								path="/bar"
-								element="Bar"
+								element={<Bar />}
 							/>
 							<Route
 								path="/pie"
-								element="Pie"
+								element={<Pie />}
 							/>
 							<Route
 								path="/financial"
-								element="Financial"
+								element={<Financial />}
 							/>
 							<Route
 								path="/color-mapping"
-								element="Color Mapping"
+								element={<ColorMapping />}
 							/>
 							<Route
 								path="/pyramid"
-								element="Pyramid"
+								element={<Pyramid />}
 							/>
 							<Route
-								path="/line"
-								element="Line"
+								path="/stacked"
+								element={<Stacked />}
 							/>
 						</Routes>
 					</div>
