@@ -29,8 +29,35 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-	const { activeMenu, setActiveMenu, handleClick, isClicked } =
-		useStateContext();
+	const {
+		activeMenu,
+		setActiveMenu,
+		handleClick,
+		isClicked,
+		screenSize,
+		setScreenSize,
+	} = useStateContext();
+
+	useEffect(() => {
+		// figure out the window size when it loads
+		const handleResize = () => setScreenSize(window.innerWidth);
+
+		window.addEventListener("resize", handleResize); // if the window resizes we call the handleResize function
+
+		handleResize(); // call handleResize initially to figure out the initial width
+
+		// in React when you use addEventListener you want to remove that event listener
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	// track when the screen size changes
+	useEffect(() => {
+		if (screenSize <= 900) {
+			setActiveMenu(false);
+		} else {
+			setActiveMenu(true);
+		}
+	}, [screenSize]);
 
 	return (
 		<div className="flex justify-between p-2 md:mx-6 relative">
