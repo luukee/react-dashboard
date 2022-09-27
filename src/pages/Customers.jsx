@@ -27,7 +27,8 @@ const Customer = () => {
 				dataSource={customersData}
 				allowPaging
 				allowSorting
-				toolbar={["Search"]}
+				toolbar={["Delete"]}
+				editSettings={{ allowDeleting: true, allowEditing: true }}
 				width="auto">
 				<ColumnsDirective>
 					{customersGrid.map((item, index) => (
@@ -37,7 +38,9 @@ const Customer = () => {
 						/>
 					))}
 				</ColumnsDirective>
-				<Inject services={[Page, Toolbar]} />
+				<Inject
+					services={[Page, Toolbar, Selection, Edit, Sort, Filter]}
+				/>
 			</GridComponent>
 		</div>
 	);
