@@ -5,31 +5,36 @@ import {
 	SparklineTooltip,
 } from "@syncfusion/ej2-react-charts";
 // implementing syncfusion: https://ej2.syncfusion.com/react/documentation/sparkline/getting-started/
-const SparkLine = ({ id, height, width, color, data, type, currentColor }) => {
-	return (
-		<SparklineComponent
-			id={id}
-			height={height}
-			width={width}
-			lineWidth={1}
-			valueType="Numeric"
-			fill={color}
-			border={{ color: currentColor, width: 2 }}
-			dataSource={data}
-			xName="x"
-			yName="y"
-			type={type}
-			tooltipSettings={{
-				visible: true,
-				// eslint-disable-next-line no-template-curly-in-string
-				format: "${x} : data ${yval}",
-				trackLineSettings: {
+class SparkLine extends React.PureComponent {
+	render() {
+		const { id, height, width, color, data, type, currentColor } =
+			this.props;
+
+		return (
+			<SparklineComponent
+				id={id}
+				height={height}
+				width={width}
+				lineWidth={1}
+				valueType="Numeric"
+				fill={color}
+				border={{ color: currentColor, width: 2 }}
+				dataSource={data}
+				xName="x"
+				yName="y"
+				type={type}
+				tooltipSettings={{
 					visible: true,
-				},
-			}}>
-			<Inject services={[SparklineTooltip]} />
-		</SparklineComponent>
-	);
-};
+					// eslint-disable-next-line no-template-curly-in-string
+					format: "${x} : data ${yval}",
+					trackLineSettings: {
+						visible: true,
+					},
+				}}>
+				<Inject services={[SparklineTooltip]} />
+			</SparklineComponent>
+		);
+	}
+}
 
 export default SparkLine;
