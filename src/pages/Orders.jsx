@@ -24,6 +24,16 @@ const Orders = () => {
 				category="Page"
 				title="Orders"
 			/>
+			<GridComponent>
+				<ColumnsDirective>
+					{ordersGrid.map((item, index) => (
+						<ColumnDirective
+							key={index}
+							{...item}
+						/>
+					))}
+				</ColumnsDirective>
+			</GridComponent>
 		</div>
 	);
 };
