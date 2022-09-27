@@ -24,7 +24,9 @@ const Orders = () => {
 				category="Page"
 				title="Orders"
 			/>
-			<GridComponent>
+			<GridComponent
+				id="gridcomp"
+				dataSource={ordersData}>
 				<ColumnsDirective>
 					{ordersGrid.map((item, index) => (
 						<ColumnDirective
